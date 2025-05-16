@@ -1,7 +1,6 @@
 # BigFS - Sistema de Arquivos Distribuídos  
-# Versão: 2.3
-
----
+> Versão servidor : 2.7
+> Versão cliente : 2.5
 
 ## ✅ Funcionalidades
 
@@ -10,8 +9,6 @@
 - 🔼 Upload de arquivos locais para o servidor (`cp ./arquivo.txt remoto/arquivo.txt`)
 - 🔽 Download de arquivos do servidor para o cliente (`cp remoto/arquivo.txt ./arquivo.txt`)
 - ❓ Ajuda interativa (`help`)
-
----
 
 ## 🧱 Arquitetura
 
@@ -31,15 +28,11 @@ O sistema segue uma arquitetura **cliente-servidor distribuída**, composta por:
 
 A comunicação é feita via RPC usando **Pyro4** com suporte a **NameServer**.
 
----
-
 ## 🔌 Protocolo de Comunicação
 
 1. O cliente localiza o servidor pelo **NameServer** (IP fixo necessário).
 2. Um proxy Pyro é criado no cliente.
 3. As chamadas remotas utilizam os métodos da classe `BigFSServer`, que encapsula um `BigFSProtocol`.
-
----
 
 ## ✅ Verificação de Integridade com SHA-256
 
@@ -54,8 +47,6 @@ Durante o upload (cliente → servidor):
     - Se os hashes não baterem, o servidor rejeita o fragmento
 
 Isso garante que cada fragmento individual chegou sem corrupção ou alteração.
-
----
 
 ## 🧬 Base64 na Transferência de Arquivos
 
@@ -73,16 +64,12 @@ Isso garante que cada fragmento individual chegou sem corrupção ou alteração
 
         - Ao enviar um arquivo (download), codifica os fragmentos em Base64 para envio
 
----
-
 ## ⚠️ Limitações
 
 - Sem autenticação ou controle de acesso
 - Verificação de integridade somente para upload
 - Sem replicação ou tolerância a falhas
 - NameServer deve ser iniciado manualmente e requer IP fixo
-
----
 
 ## 🚀 Melhorias Futuras
 
@@ -92,10 +79,9 @@ Isso garante que cada fragmento individual chegou sem corrupção ou alteração
 - ✅ Verificação de integridade para Download
 - 🧩 Modularização para múltiplos DataNodes
 
----
-
 ## 📁 Estrutura do Projeto
 
+```
 bigfs_rpc/
 ├── shared/
 │ ├── __init__.py
@@ -106,8 +92,7 @@ bigfs_rpc/
 │
 ├── client/
 │ └── bigfs_client_v2.py 
-
----
+```
 
 ## 🧪 Como Executar
 
