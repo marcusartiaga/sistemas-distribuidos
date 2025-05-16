@@ -1,6 +1,5 @@
 # BigFS - Sistema de Arquivos Distribuídos  
-> Versão servidor : 2.7
-> Versão cliente : 2.5
+> Versão servidor : 2.7 | cliente : 2.5
 
 ## ✅ Funcionalidades
 
